@@ -10,9 +10,9 @@ class ScanModel {
     required this.valor,
   }) {
     if (this.valor.contains('http')) {
-      this.valor = 'http';
+      this.tipo = 'http';
     } else {
-      this.valor = 'geo';
+      this.tipo = 'geo';
     }
   }
 
