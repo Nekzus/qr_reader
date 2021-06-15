@@ -51,17 +51,25 @@ class _MapaPageState extends State<MapaPage> {
           _controller.complete(controller);
         },
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.layers),
-          onPressed: () {
-            if (mapType == MapType.normal) {
-              mapType = MapType.satellite;
-            } else {
-              mapType = MapType.normal;
-            }
+      floatingActionButton: Container(
+        margin: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            FloatingActionButton(
+                child: Icon(Icons.layers),
+                onPressed: () {
+                  if (mapType == MapType.normal) {
+                    mapType = MapType.satellite;
+                  } else {
+                    mapType = MapType.normal;
+                  }
 
-            setState(() {});
-          }),
+                  setState(() {});
+                }),
+          ],
+        ),
+      ),
     );
   }
 }
