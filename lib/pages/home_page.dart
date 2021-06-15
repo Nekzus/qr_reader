@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
-import 'package:qrreader/providers/db_provider.dart';
 import 'package:qrreader/providers/scan_list_provider.dart';
 
 import 'package:qrreader/widgets/custom_navigatorbar.dart';
@@ -9,7 +8,6 @@ import 'package:qrreader/pages/direcciones_page.dart';
 import 'package:qrreader/pages/mapas_page.dart';
 import 'package:qrreader/widgets/scan_button.dart';
 import 'package:qrreader/providers/ui_providers.dart';
-import 'package:qrreader/models/scan_model.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -20,7 +18,12 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: Text('Historial'),
         actions: [
-          IconButton(icon: Icon(Icons.delete_forever), onPressed: () {})
+          IconButton(
+              icon: Icon(Icons.delete_forever),
+              onPressed: () {
+                Provider.of<ScanListProvider>(context, listen: false)
+                    .borrarTodos();
+              })
         ],
       ),
       body: _HomePageBody(),
